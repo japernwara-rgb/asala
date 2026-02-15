@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة أصالة - لاستيراد المواد الخام</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           CSS CUSTOM PROPERTIES (Design Tokens)
+           ============================================ */
+        :root {
+            /* Colors */
+            --background: #FAFAFA;
+            --foreground: #0F172A;
+            --muted: #F1F5F9;
+            --muted-foreground: #64748B;
+            --accent: #0052FF;
+            --accent-secondary: #4D7CFF;
+            --accent-foreground: #FFFFFF;
+            --border: #E2E8F0;
+            --card: #FFFFFF;
+            --ring: #0052FF;
+            
+            /* Typography */
+            --font-display: "Tajawal", system-ui, sans-serif;
+            --font-body: "Inter", system-ui, sans-serif;
+            --font-mono: "JetBrains Mono", monospace;
+            
+            /* Spacing */
+            --section-padding: 7rem;
+            --container-max: 72rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.08);
+            --shadow-xl: 0 20px 25px rgba(0,0,0,0.1);
+            --shadow-accent: 0 4px 14px rgba(0,82,255,0.25);
+            --shadow-accent-lg: 0 8px 24px rgba(0,82,255,0.35);
+        }
+        
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.625;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+        
+        /* ============================================
+           TYPOGRAPHY SYSTEM
+           ============================================ */
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+        
+        h1 {
+            font-size: clamp(2.75rem, 5vw, 5.25rem);
+            line-height: 1.05;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.25rem);
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+        }
+        
+        p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.75;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to left, var(--accent), var(--accent-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        /* ============================================
+           LAYOUT UTILITIES
+           ============================================ */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .section {
+            padding: var(--section-padding) 0;
+        }
+        
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 4rem;
+            }
+        }
+        
+        /* ============================================
+           BUTTON SYSTEM
+           ============================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            min-height: 3.5rem;
+            font-family: var(--font-body);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to left, var(--accent), var(--accent-secondary));
+            color: var(--accent-foreground);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-accent-lg);
+            filter: brightness(1.1);
+        }
+        
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--foreground);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--muted);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover .btn-icon {
+            transform: translateX(-4px);
+        }
+        
+        /* ============================================
+           CARD SYSTEM
+           ============================================ */
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-4px);
+        }
+        
+        .card-gradient-border {
+            position: relative;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            padding: 2px;
+            border-radius: 1rem;
+        }
+        
+        .card-gradient-border .card-inner {
+            background: var(--card);
+            border-radius: calc(1rem - 2px);
+            padding: 2rem;
+            height: 100%;
+        }
+        
+        /* ============================================
+           BADGE SYSTEM
+           ============================================ */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(0, 82, 255, 0.3);
+            background: rgba(0, 82, 255, 0.05);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+        }
+        
+        .badge-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% { 
+                transform: scale(1.3);
+                opacity: 0.7;
+            }
+        }
+        
+        /* ============================================
+           HEADER / NAVIGATION
+           ============================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(250, 250, 250, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled {
+            background: rgba(250, 250, 250, 0.95);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 1.5rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--foreground);
+        }
+        
+        .logo img {
+            height: 3rem;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted-foreground);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 1.5rem;
+            height: 2px;
+            background: var(--foreground);
+            margin: 0.375rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 5rem;
+                right: -100%;
+                width: 100%;
+                max-width: 20rem;
+                background: var(--card);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow-xl);
+                border-radius: 1rem 0 0 1rem;
+                transition: right 0.3s ease;
+                gap: 1.5rem;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            padding-top: calc(var(--section-padding) + 5rem);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-text p {
+            color: var(--muted-foreground);
+            margin-bottom: 2.5rem;
+            max-width: 36rem;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-graphic {
+            position: relative;
+            height: 32rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-circle {
+            position: absolute;
+            width: 28rem;
+            height: 28rem;
+            border: 2px dashed var(--accent);
+            border-radius: 50%;
+            opacity: 0.2;
+            animation: rotate 60s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .hero-card {
+            position: absolute;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-xl);
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .hero-card:nth-child(2) {
+            top: 10%;
+            right: 10%;
+            animation-delay: -1s;
+        }
+        
+        .hero-card:nth-child(3) {
+            bottom: 15%;
+            left: 5%;
+            animation-delay: -2.5s;
+        }
+        
+        .hero-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .hero-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .hero-card p {
+            font-size: 0.875rem;
+            color: var(--muted-foreground);
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-graphic {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .hero-cta .btn {
+                width: 100%;
+            }
+        }
+       
+        /* ============================================
+           STATS SECTION (INVERTED)
+           ============================================ */
+        .stats-section {
+            background: var(--foreground);
+            color: var(--background);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+            pointer-events: none;
+        }
+        
+        .stats-section::after {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 40rem;
+            height: 40rem;
+            background: radial-gradient(circle, rgba(0,82,255,0.06), transparent 70%);
+            border-radius: 50%;
+            filter: blur(150px);
+            pointer-events: none;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .stat-number {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            font-family: var(--font-display);
+            background: linear-gradient(to left, var(--accent), var(--accent-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.125rem;
+        }
+        
+        /* ============================================
+           SERVICES SECTION
+           ============================================ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            position: relative;
+        }
+        
+        .service-icon {
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-accent);
+        }
+        
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .service-card p {
+            color: var(--muted-foreground);
+            line-height: 1.75;
+        }
+        
+        /* ============================================
+           ABOUT SECTION
+           ============================================ */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p {
+            color: var(--muted-foreground);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-features {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        
+        .about-features li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .about-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: rgba(0,82,255,0.1);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .about-visual {
+            position: relative;
+            height: 32rem;
+            background: linear-gradient(135deg, rgba(0,82,255,0.05), rgba(77,124,255,0.05));
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+        
+        .about-visual::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20rem;
+            height: 20rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            border-radius: 50%;
+            opacity: 0.1;
+            filter: blur(80px);
+        }
+        
+        @media (max-width: 1024px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-visual {
+                height: 20rem;
+            }
+        }
+        
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+        
+        .contact-item-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-item-content h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .contact-item-content p {
+            color: var(--muted-foreground);
+            font-size: 1rem;
+        }
+        
+        .contact-item-content a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item-content a:hover {
+            color: var(--accent-secondary);
+        }
+        
+        .map-container {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 100%;
+            min-height: 400px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--foreground);
+            color: rgba(255,255,255,0.9);
+            padding: 4rem 0 2rem;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+            pointer-events: none;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .footer-logo img {
+            height: 3rem;
+            width: auto;
+        }
+        
+        .footer-logo-text {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .footer-description {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.75;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(-4px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            position: relative;
+            z-index: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        /* ============================================
+           SECTION HEADERS
+           ============================================ */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header .badge {
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-header h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            color: var(--muted-foreground);
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+        
+        /* ============================================
+           ANIMATIONS & UTILITIES
+           ============================================ */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.7s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .slide-up {
+            opacity: 0;
+            transform: translateY(28px);
+            animation: slideUp 0.7s ease forwards;
+        }
+        
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        
+        /* Scroll reveal utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: all 0.7s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ============================================
+           RESPONSIVE UTILITIES
+           ============================================ */
+        @media (max-width: 640px) {
+            .hide-mobile {
+                display: none !important;
+            }
+        }
+        
+        @media (min-width: 641px) {
+            .show-mobile {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- ============================================
+         HEADER / NAVIGATION
+         ============================================ -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="شركة أصالة" onerror="this.style.display='none'">
+                <span class="logo-text">أصالة</span>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+    
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero section" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="badge slide-up">
+                        <span class="badge-dot"></span>
+                        <span>شركة رائدة في الاستيراد</span>
+                    </div>
+                    
+                    <h1 class="slide-up stagger-1">
+                        شركة <span class="gradient-text">أصالة</span> لاستيراد المواد الخام
+                    </h1>
+                    
+                    <p class="slide-up stagger-2">
+                        نحن شركة متخصصة في استيراد وتوريد المواد الخام عالية الجودة، نقدم حلولاً متكاملة لتلبية احتياجات السوق الليبي بأعلى معايير الجودة والاحترافية.
+                    </p>
+                    
+                    <div class="hero-cta slide-up stagger-3">
+                        <a href="#contact" class="btn btn-primary">
+                            <span>تواصل معنا</span>
+                            <span class="btn-icon">←</span>
+                        </a>
+                        <a href="#services" class="btn btn-secondary">
+                            <span>خدماتنا</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-graphic hide-mobile">
+                    <div class="hero-circle"></div>
+                    
+                    <div class="hero-card">
+                        <div class="hero-icon"></div>
+                        <h4>ودة عالية</h4>
+                        <p>مواد خام مضمونة</p>
+                    </div>
+                    
+                    <div class="hero-card">
+                        <div class="hero-icon"></div>
+                        <h4>وصيل سريع</h4>
+                        <p>خدمة لوجستية متميزة</p>
+                    </div>
+                    
+                    <div class="hero-card">
+                        <div class="hero-icon">✓</div>
+                        <h4>موثوقية</h4>
+                        <p>شريك تجاري معتمد</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================
+         STATS SECTION (INVERTED)
+         ============================================ -->
+    <section class="stats-section section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">سنوات من الخبرة</div>
+                </div>
+                
+                <div class="stat-item reveal">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">عميل راضٍ</div>
+                </div>
+                
+                <div class="stat-item reveal">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">عملية استيراد ناجحة</div>
+                </div>
+                
+                <div class="stat-item reveal">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">دعم متواصل</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================
+         SERVICES SECTION
+         ============================================ -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    <span>ما نقدمه</span>
+                </div>
+                <h2>خدماتنا <span class="gradient-text">المتميزة</span></h2>
+                <p>نوفر مجموعة شاملة من الخدمات لضمان حصولكم على أفضل المواد الخام بأعلى معايير الجودة</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="card service-card reveal">
+                    <div class="service-icon"></div>
+                    <h3>ستيراد المواد الخام</h3>
+                    <p>نستورد مجموعة واسعة من المواد الخام من أفضل المصادر العالمية، مع ضمان الجودة والمطابقة للمواصفات الدولية.</p>
+                </div>
+                
+                <div class="card service-card reveal">
+                    <div class="service-icon"></div>
+                    <h3>لاستشارات التجارية</h3>
+                    <p>نقدم استشارات متخصصة لمساعدتكم في اختيار المواد المناسبة لاحتياجاتكم الصناعية والتجارية.</p>
+                </div>
+                
+                <div class="card service-card reveal">
+                    <div class="service-icon"></div>
+                    <h3>لخدمات اللوجستية</h3>
+                    <p>نوفر حلول شحن ونقل متكاملة مع متابعة دقيقة لضمان وصول البضائع في الوقت المحدد وبحالة ممتازة.</p>
+                </div>
+                
+                <div class="card service-card reveal">
+                    <div class="service-icon">✅</div>
+                    <h3>ضمان الجودة</h3>
+                    <p>نطبق أعلى معايير الجودة في جميع مراحل العمل من الاختيار حتى التسليم، مع شهادات معتمدة.</p>
+                </div>
+                
+                <div class="card service-card reveal">
+                    <div class="service-icon"></div>
+                    <h3>لول مخصصة</h3>
+                    <p>نصمم حلول استيراد مخصصة تناسب احتياجات كل عميل، مع مرونة في الكميات والمواصفات.</p>
+                </div>
+                
+                <div class="card service-card reveal">
+                    <div class="service-icon"></div>
+                    <h3>راكات طويلة الأمد</h3>
+                    <p>نبني علاقات تجارية مستدامة مع عملائنا من خلال الالتزام والشفافية والخدمة المتميزة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================ -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        <span>من نحن</span>
+                    </div>
+                    
+                    <h2 class="reveal">شركة <span class="gradient-text">أصالة</span> للمعرفة</h2>
+                    
+                    <p class="reveal">
+                        شركة أصالة هي شركة رائدة في مجال استيراد المواد الخام في ليبيا، تأسست على أسس من الخبرة والاحترافية لتلبية احتياجات السوق المحلي من المواد الخام عالية الجودة.
+                    </p>
+                    
+                    <p class="reveal">
+                        نفخر بشبكة علاقاتنا الواسعة مع أفضل الموردين العالميين، مما يمكننا من توفير مواد خام متنوعة تلبي أعلى المعايير الدولية بأسعار تنافسية.
+                    </p>
+                    
+                    <ul class="about-features">
+                        <li class="reveal">
+                            <div class="feature-icon">✓</div>
+                            <span>خبرة تزيد عن 15 عاماً في مجال الاستيراد</span>
+                        </li>
+                        <li class="reveal">
+                            <div class="feature-icon">✓</div>
+                            <span>شبكة موردين عالمية موثوقة</span>
+                        </li>
+                        <li class="reveal">
+                            <div class="feature-icon">✓</div>
+                            <span>التزام صارم بمعايير الجودة الدولية</span>
+                        </li>
+                        <li class="reveal">
+                            <div class="feature-icon">✓</div>
+                            <span>خدمة عملاء متميزة على مدار الساعة</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="about-visual reveal"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================
+         CONTACT SECTION
+         ============================================ -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    <span>تواصل معنا</span>
+                </div>
+                <h2>نحن هنا <span class="gradient-text">لخدمتكم</span></h2>
+                <p>تواصلوا معنا اليوم للحصول على استشارة مجانية أو لمعرفة المزيد عن خدماتنا</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item reveal">
+                        <div class="contact-item-icon"></div>
+                        <div class="contact-item-content">
+                            <h4>قم الهاتف</h4>
+                            <p><a href="tel:0922151548" dir="ltr">0922151548</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item reveal">
+                        <div class="contact-item-icon">✉️</div>
+                        <div class="contact-item-content">
+                            <h4>البريد الإلكتروني</h4>
+                            <p><a href="mailto:info@asalatma3rifa.com.ly">info@asalatma3rifa.com.ly</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item reveal">
+                        <div class="contact-item-icon"></div>
+                        <div class="contact-item-content">
+                            <h4>لموقع</h4>
+                            <p>ليبيا - طرابلس</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-container reveal">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54611.87449102469!2d13.191337999999999!3d32.8872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13a8926f8f3c5c43%3A0x3c4c8c8c8c8c8c8c!2sTripoli%2C%20Libya!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="شركة أصالة" onerror="this.style.display='none'">
+                        <span class="footer-logo-text">أصالة</span>
+                    </div>
+                    <p class="footer-description">
+                        شركة رائدة في استيراد المواد الخام، نقدم حلولاً متكاملة بأعلى معايير الجودة والاحترافية.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#services">خدماتنا</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>تواصل معنا</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:0922151548" dir="ltr">0922151548</a></li>
+                        <li><a href="mailto:info@asalatma3rifa.com.ly">info@asalatma3rifa.com.ly</a></li>
+                        <li><a href="#contact">ليبيا - طرابلس</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 شركة أصالة للمعرفة. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+        // ============================================
+        // MOBILE MENU TOGGLE
+        // ============================================
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // ============================================
+        // HEADER SCROLL EFFECT
+        // ============================================
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // ============================================
+        // SMOOTH SCROLL FOR ANCHOR LINKS
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // ============================================
+        // SCROLL REVEAL ANIMATION
+        // ============================================
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const revealPoint = 100;
+            
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        
+        // Initial check on page load
+        revealOnScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', revealOnScroll);
+        
+        // ============================================
+        // COUNTER ANIMATION FOR STATS
+        // ============================================
+        const animateCounter = (element, target, duration = 2000) => {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current) + '+';
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target + '+';
+                }
+            };
+            
+            updateCounter();
+        };
+        
+        // Trigger counter animation when stats section is visible
+        let statsAnimated = false;
+        const statsSection = document.querySelector('.stats-section');
+        
+        const checkStatsVisibility = () => {
+            if (statsAnimated) return;
+            
+            const rect = statsSection.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+            
+            if (isVisible) {
+                statsAnimated = true;
+                
+                const statNumbers = document.querySelectorAll('.stat-number');
+                statNumbers.forEach((stat, index) => {
+                    const text = stat.textContent;
+                    const number = parseInt(text.replace(/\D/g, ''));
+                    
+                    setTimeout(() => {
+                        animateCounter(stat, number, 2000);
+                    }, index * 100);
+                });
+            }
+        };
+        
+        window.addEventListener('scroll', checkStatsVisibility);
+        checkStatsVisibility(); // Check on load
+        
+        // ============================================
+        // PARALLAX EFFECT FOR HERO GRAPHIC
+        // ============================================
+        const heroGraphic = document.querySelector('.hero-graphic');
+        
+        if (heroGraphic) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * 0.3;
+                
+                heroGraphic.style.transform = `translateY(${rate}px)`;
+            });
+        }
+        
+        // ============================================
+        // FORM VALIDATION (if you add a contact form later)
+        // ============================================
+        const validateEmail = (email) => {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        };
+        
+        // ============================================
+        // LAZY LOADING FOR IMAGES
+        // ============================================
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    observer.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+        
+        // ============================================
+        // ACTIVE NAV LINK ON SCROLL
+        // ============================================
+        const sections = document.querySelectorAll('section[id]');
+        const navLinksArray = document.querySelectorAll('.nav-links a');
+        
+        const highlightNavLink = () => {
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 150;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinksArray.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', highlightNavLink);
+        
+        // ============================================
+        // PREVENT ANIMATIONS ON PAGE LOAD
+        // ============================================
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+        
+        // ============================================
+        // HANDLE REDUCED MOTION PREFERENCE
+        // ============================================
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        
+        if (prefersReducedMotion.matches) {
+            // Disable animations for users who prefer reduced motion
+            document.querySelectorAll('.hero-circle, .hero-card, .badge-dot').forEach(el => {
+                el.style.animation = 'none';
+            });
+        }
+        
+        // ============================================
+        // BACK TO TOP BUTTON (Optional Enhancement)
+        // ============================================
+        const createBackToTopButton = () => {
+            const button = document.createElement('button');
+            button.innerHTML = '↑';
+            button.className = 'back-to-top';
+            button.style.cssText = `
+                position: fixed;
+                bottom: 2rem;
+                left: 2rem;
+                width: 3rem;
+                height: 3rem;
+                border-radius: 50%;
+                background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+                color: white;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                box-shadow: var(--shadow-accent);
+                z-index: 999;
+            `;
+            
+            button.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 500) {
+                    button.style.opacity = '1';
+                    button.style.visibility = 'visible';
+                } else {
+                    button.style.opacity = '0';
+                    button.style.visibility = 'hidden';
+                }
+            });
+            
+            document.body.appendChild(button);
+        };
+        
+        createBackToTopButton();
+        
+        // ============================================
+        // CURSOR EFFECT (Optional Enhancement)
+        // ============================================
+        const createCursorEffect = () => {
+            const cursor = document.createElement('div');
+            cursor.className = 'custom-cursor';
+            cursor.style.cssText = `
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                border: 2px solid var(--accent);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transition: transform 0.2s ease;
+                display: none;
+            `;
+            
+            document.body.appendChild(cursor);
+            
+            // Only show on desktop
+            if (window.innerWidth > 1024) {
+                cursor.style.display = 'block';
+                
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.left = e.clientX - 10 + 'px';
+                    cursor.style.top = e.clientY - 10 + 'px';
+                });
+                
+                // Scale up on interactive elements
+                document.querySelectorAll('a, button, .card').forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        cursor.style.transform = 'scale(1.5)';
+                        cursor.style.borderColor = 'var(--accent-secondary)';
+                    });
+                    
+                    el.addEventListener('mouseleave', () => {
+                        cursor.style.transform = 'scale(1)';
+                        cursor.style.borderColor = 'var(--accent)';
+                    });
+                });
+            }
+        };
+        
+        // Uncomment to enable cursor effect
+        // createCursorEffect();
+        
+        // ============================================
+        // PERFORMANCE OPTIMIZATION
+        // ============================================
+        
+        // Debounce function for scroll events
+        const debounce = (func, wait = 10) => {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        };
+        
+        // Apply debounce to scroll-heavy functions
+        window.addEventListener('scroll', debounce(() => {
+            revealOnScroll();
+            highlightNavLink();
+            checkStatsVisibility();
+        }, 10));
+        
+        // ============================================
+        // CONSOLE MESSAGE (Branding)
+        // ============================================
+        console.log('%c شركة أصالة للمعرفة ', 'background: linear-gradient(135deg, #0052FF, #4D7CFF); color: white; font-size: 20px; padding: 10px 20px; border-radius: 8px; font-weight: bold;');
+        console.log('%c لاستيراد المواد الخام ', 'color: #0052FF; font-size: 14px; font-weight: bold;');
+        console.log('%c  0922151548 |  info@asalatma3rifa.com.ly ', 'color: #64748B; font-size: 12px;');
+        
+        // ============================================
+        // ACCESSIBILITY ENHANCEMENTS
+        // ============================================
+        
+        // Add skip to main content link
+        const skipLink = document.createElement('a');
+        skipLink.href = '#home';
+        skipLink.textContent = 'خطي إلى المحتوى الرئيسي';
+        skipLink.className = 'skip-link';
+        skipLink.style.cssText = `
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            z-index: 10000;
+            transition: top 0.3s ease;
+        `;
+        
+        skipLink.addEventListener('focus', () => {
+            skipLink.style.top = '1rem';
+        });
+        
+        skipLink.addEventListener('blur', () => {
+            skipLink.style.top = '-100px';
+        });
+        
+        document.body.insertBefore(skipLink, document.body.firstChild);
+        
+        // ============================================
+        // ERROR HANDLING FOR LOGO
+        // ============================================
+        document.querySelectorAll('img[src="logo.png"]').forEach(img => {
+            img.addEventListener('error', function() {
+                // Create a fallback text logo
+                const fallback = document.createElement('div');
+                fallback.style.cssText = `
+                    width: 3rem;
+                    height: 3rem;
+                    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+                    border-radius: 0.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 1.5rem;
+                `;
+                fallback.textContent = 'أ';
+                this.parentNode.replaceChild(fallback, this);
+            });
+        });
+        
+        // ============================================
+        // INITIALIZE ALL FEATURES ON DOM READY
+        // ============================================
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('✅ Website initialized successfully');
+            
+            // Add loaded class to body for CSS transitions
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+        
+    </script>
+    
+</body>
+</html>
